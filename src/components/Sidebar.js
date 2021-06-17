@@ -1,10 +1,13 @@
 import React from "react";
 import NoteList from "./NoteList";
 
-function Sidebar() {
+function Sidebar( {filteredNoteCollection } ) {
+
+  
+
   return (
     <div className="master-detail-element sidebar">
-      <NoteList />
+      <NoteList filteredNoteCollection={filteredNoteCollection}/>
       <button>New</button>
     </div>
   );
