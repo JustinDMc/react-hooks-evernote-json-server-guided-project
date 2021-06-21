@@ -17,17 +17,24 @@ function NoteContainer() {
     })
   }, [])
 
+  const renderNote = () => {
+    filteredNoteCollection.map(note => 
+      <div key={note.id}>
+        <h2>{note.title}</h2>
+        <p>{note.body}</p>
+      </div>)
+  }
+
   const searchNotes = (searchTerm) => {
     return setFilteredNoteCollection(noteCollection.filter(note => note.title.includes(searchTerm)))
   }
-
 
   return (
     <>
       <Search searchNotes={searchNotes}/>
       <div className="container">
         <Sidebar filteredNoteCollection={filteredNoteCollection}/>
-        <Content />
+        <Content renderNote={renderNote}/>
       </div>
     </>
   );
